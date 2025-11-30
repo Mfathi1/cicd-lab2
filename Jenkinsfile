@@ -1,4 +1,4 @@
-@Library('library') _
+@Library('jenkins-library') _
 
 pipeline {
     agent any
@@ -12,17 +12,9 @@ pipeline {
     }
 
     post {
-        always {
-            cleanWs()
-        }
-        success {
-            echo "Build completed successfully."
-        }
-        failure {
-            echo "Build failed."
-        }
-        unstable {
-            echo "Build is unstable."
-        }
+        always { cleanWs() }
+        success { echo "Build completed successfully." }
+        failure { echo "Build failed." }
+        unstable { echo "Build is unstable." }
     }
 }
