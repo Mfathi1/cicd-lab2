@@ -32,25 +32,4 @@ pipeline {
             }
         }
 
-        stage('Archive') {
-            steps {
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-            }
-        }
-    }
-
-    post {
-        always {
-            cleanWs()
-        }
-        success {
-            echo "Build completed successfully."
-        }
-        failure {
-            echo "Build failed."
-        }
-        unstable {
-            echo "Build is unstable."
-        }
-    }
-}
+        stage('Archive')
